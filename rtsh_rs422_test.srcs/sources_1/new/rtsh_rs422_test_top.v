@@ -47,7 +47,8 @@ wire ztc_signal;
 wire pol_signal;
 wire irig_signal;
 
-reg [31:0]  main_counter;
+reg [31:0]  main_counter_reg, main_counter_next;
+reg [31:0]  period;
 
 PulseTrainGenerator FMPulseTrainGen
 (
@@ -57,7 +58,6 @@ PulseTrainGenerator FMPulseTrainGen
     .pulse_width(PULSE_WIDTH1),
     .period(PERIOD1),
     .pulse_train(fm_signal)
-//    .rgbs(rgbs)
 );
 
 PulseTrainGenerator ZTCPulseTrainGen
@@ -68,7 +68,6 @@ PulseTrainGenerator ZTCPulseTrainGen
     .pulse_width(PULSE_WIDTH2),
     .period(PERIOD1),
     .pulse_train(ztc_signal)
-//    .rgbs(rgbs)
 );
 
 PulseTrainGenerator POLPulseTrainGen
@@ -79,7 +78,6 @@ PulseTrainGenerator POLPulseTrainGen
     .pulse_width(PULSE_WIDTH3),
     .period(PERIOD1),
     .pulse_train(pol_signal)
-//    .rgbs(rgbs)
 );
 
 PulseTrainGenerator IRIGPulseTrainGen
@@ -90,19 +88,29 @@ PulseTrainGenerator IRIGPulseTrainGen
     .pulse_width(PULSE_WIDTH4),
     .period(PERIOD1),
     .pulse_train(irig_signal)
-//    .rgbs(rgbs)
 );
 
 always @(posedge clk)
 begin
-    if(main_counter >= (PERIOD1))
-        main_counter = 32'd1;
-    else
-        main_counter = main_counter + 1;
+    main_counter_reg <= main_counter_next;
     
 end
 
+always@*
+begin
+    main_counter_next = main_counter_reg;
+    
+    if(main_counter_reg == PERIOD1)
+    begin
+        main_counter_next = 32'd0;            
+    end
+    else
+    begin
+        main_counter_next = main_counter_reg + 1;
+    end
+end
 
+assign rgbs = main_counter_reg[11:0];
 assign FM_output = fm_signal;
 assign ZTC_output = ztc_signal;
 assign polarity_output = pol_signal;

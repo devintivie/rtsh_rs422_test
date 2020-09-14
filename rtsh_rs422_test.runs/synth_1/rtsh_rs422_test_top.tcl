@@ -70,8 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -82,7 +81,6 @@ set_property webtalk.parent_dir C:/Users/devin/Workspaces/VivadoWorkspace/rtsh_r
 set_property parent.project_path C:/Users/devin/Workspaces/VivadoWorkspace/rtsh_rs422_test/rtsh_rs422_test.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:arty-a7-35:part0:1.0 [current_project]
 set_property ip_output_repo c:/Users/devin/Workspaces/VivadoWorkspace/rtsh_rs422_test/rtsh_rs422_test.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }

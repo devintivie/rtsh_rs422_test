@@ -27,7 +27,7 @@ module PulseTrainGenerator
     input wire [31:0] main_counter,
     input wire [31:0] pulse_width,
     input wire [31:0] period,
-    output wire [11:0] rgbs,
+//    output wire [11:0] rgbs,
     output wire pulse_train
 );
 
@@ -37,10 +37,8 @@ reg gen_reg, gen_next;
 
 always @(posedge clk)
 begin
-   gen_reg <= gen_next;
-    
+   gen_reg <= gen_next; 
 end
-
 
 always@*
 begin
@@ -56,9 +54,6 @@ begin
         gen_next = 1'b0;
 end
 
-assign rgbs = main_counter[11:0];
 assign pulse_train = gen_reg;
-
-
 
 endmodule
