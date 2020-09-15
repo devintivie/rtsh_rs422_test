@@ -121,7 +121,8 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35ticsg324-1L
   set_property design_mode GateLvl [current_fileset]
@@ -304,7 +305,7 @@ OPTRACE "read constraints: write_bitstream" END { }
   catch { write_mem_info -force rtsh_rs422_test_top.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
-  write_bitstream -force rtsh_rs422_test_top.bit 
+  write_bitstream -force rtsh_rs422_test_top.bit -bin_file
 OPTRACE "write_bitstream" END { }
 OPTRACE "write_bitstream misc" START { }
 OPTRACE "read constraints: write_bitstream_post" START { }

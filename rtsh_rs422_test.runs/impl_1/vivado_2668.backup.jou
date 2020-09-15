@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Sep 15 09:12:53 2020
+# Process ID: 2668
+# Current directory: C:/Users/devin/Workspaces/VivadoWorkspace/rtsh_rs422_test/rtsh_rs422_test.runs/impl_1
+# Command line: vivado.exe -log rtsh_rs422_test_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source rtsh_rs422_test_top.tcl -notrace
+# Log file: C:/Users/devin/Workspaces/VivadoWorkspace/rtsh_rs422_test/rtsh_rs422_test.runs/impl_1/rtsh_rs422_test_top.vdi
+# Journal file: C:/Users/devin/Workspaces/VivadoWorkspace/rtsh_rs422_test/rtsh_rs422_test.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source rtsh_rs422_test_top.tcl -notrace

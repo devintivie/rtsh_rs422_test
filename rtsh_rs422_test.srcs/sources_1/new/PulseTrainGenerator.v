@@ -26,7 +26,9 @@ module PulseTrainGenerator
     input wire enable,
     input wire [31:0] main_counter,
     input wire [31:0] pulse_width,
+    input wire [31:0] delay,
     input wire [31:0] period,
+    input wire polarity,
 //    output wire [11:0] rgbs,
     output wire pulse_train
 );
@@ -45,8 +47,10 @@ begin
      //clock counter
     if(enable == 1'b1)
     begin
-        if(main_counter >= pulse_width)
+        if(main_counter < delay)
             gen_next = 1'b0;
+        else if(main_counter >= pulse_width + delay)
+            gen_next = 1'b0;        
         else
             gen_next = 1'b1;
     end
@@ -54,6 +58,6 @@ begin
         gen_next = 1'b0;
 end
 
-assign pulse_train = gen_reg;
+assign pulse_train = gen_reg ^ polarity;
 
 endmodule
