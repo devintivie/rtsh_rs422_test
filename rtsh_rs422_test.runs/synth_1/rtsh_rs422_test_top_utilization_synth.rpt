@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Tue Sep 15 14:14:48 2020
+| Date         : Wed Sep 16 13:11:09 2020
 | Host         : DESKTOP-OJFSORI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file rtsh_rs422_test_top_utilization_synth.rpt -pb rtsh_rs422_test_top_utilization_synth.pb
 | Design       : rtsh_rs422_test_top
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   25 |     0 |     20800 |  0.12 |
-|   LUT as Logic          |   25 |     0 |     20800 |  0.12 |
+| Slice LUTs*             |   42 |     0 |     20800 |  0.20 |
+|   LUT as Logic          |   42 |     0 |     20800 |  0.20 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
 | Slice Registers         |   36 |     0 |     41600 |  0.09 |
 |   Register as Flip Flop |   36 |     0 |     41600 |  0.09 |
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   24 |     0 |       210 | 11.43 |
+| Bonded IOB                  |   17 |     0 |       210 |  8.10 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         5 |  0.00 |
@@ -147,13 +147,15 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |   36 |        Flop & Latch |
-| OBUF     |   20 |                  IO |
-| LUT6     |   11 |                 LUT |
-| LUT4     |    8 |                 LUT |
+| LUT6     |   25 |                 LUT |
+| OBUF     |   12 |                  IO |
+| LUT2     |    9 |                 LUT |
 | CARRY4   |    8 |          CarryLogic |
-| LUT3     |    6 |                 LUT |
-| IBUF     |    4 |                  IO |
+| LUT4     |    6 |                 LUT |
+| IBUF     |    5 |                  IO |
+| LUT3     |    3 |                 LUT |
 | LUT5     |    2 |                 LUT |
+| LUT1     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

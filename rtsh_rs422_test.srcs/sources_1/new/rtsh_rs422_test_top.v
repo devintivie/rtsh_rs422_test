@@ -24,8 +24,8 @@ module rtsh_rs422_test_top
 (
     input wire clk,
     input wire [3:0] switches,
-    input wire [3:0] led,
-    output wire [11:0] rgbs,
+    output wire [3:0] led,
+//    output wire [11:0] rgbs,
     output wire FM_output,
     output wire ZTC_output,
     output wire polarity_output,
@@ -42,7 +42,7 @@ localparam  PROGRAM_ID = 16'h0200,
             VERSION_SMALL = 4'd0;
 
 localparam  PERIOD1 = 20000,
-            DELAY1 = 500,
+            DELAY1 = 1000,
             PULSE_WIDTH1 = 2500,
             PULSE_WIDTH2 = 4000,
             PULSE_WIDTH3 = 7000,
@@ -122,15 +122,22 @@ begin
     end
 end
 
+assign pol_signal = polarity_reg && switches[1];
+
 assign rgbs = main_counter_reg[11:0];
 assign FM_output = fm_signal;
 assign ZTC_output = ztc_signal;
-assign polarity_output = polarity_reg;
+assign polarity_output = pol_signal;
 assign irig_output = irig_signal;
 
 assign FM_output_debug = fm_signal;
 assign ZTC_output_debug = ztc_signal;
-assign polarity_output_debug = polarity_reg;
+assign polarity_output_debug = pol_signal;
 assign irig_output_debug = irig_signal;
+
+assign led[3] = fm_signal;
+assign led[2] = ztc_signal;
+assign led[1] = pol_signal;
+assign led[0] = irig_signal;
 
 endmodule

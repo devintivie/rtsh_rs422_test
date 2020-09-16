@@ -34,7 +34,7 @@ module PulseTrainGenerator
 );
 
 localparam  MAX_CLOCK_COUNT = 32'hffffffff;
-
+localparam INIT_DELAY = 16'd50;
 reg gen_reg, gen_next;
 
 always @(posedge clk)
@@ -47,12 +47,16 @@ begin
      //clock counter
     if(enable == 1'b1)
     begin
-        if(main_counter < delay)
+        if(main_counter < INIT_DELAY)
             gen_next = 1'b0;
-        else if(main_counter >= pulse_width + delay)
-            gen_next = 1'b0;        
+        else if(main_counter <= pulse_width + INIT_DELAY)
+            gen_next = 1'b1;   
+        else if(main_counter <= pulse_width + INIT_DELAY + delay)
+            gen_next = 1'b0;
+        else if(main_counter <= pulse_width*2 + INIT_DELAY +delay)
+            gen_next = 1'b1;     
         else
-            gen_next = 1'b1;
+            gen_next = 1'b0;
     end
     else
         gen_next = 1'b0;
