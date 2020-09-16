@@ -53,8 +53,12 @@ begin
             gen_next = 1'b1;   
         else if(main_counter <= pulse_width + INIT_DELAY + delay)
             gen_next = 1'b0;
-        else if(main_counter <= pulse_width*2 + INIT_DELAY +delay)
+        else if(main_counter <= pulse_width*2 + INIT_DELAY + delay)
             gen_next = 1'b1;     
+        else if(main_counter <= pulse_width*2 + INIT_DELAY + delay*2)
+            gen_next = 1'b0;
+        else if(main_counter <= pulse_width*3 + INIT_DELAY + delay*2)
+            gen_next = 1'b1;  
         else
             gen_next = 1'b0;
     end

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Wed Sep 16 13:12:00 2020
+| Date             : Wed Sep 16 14:00:41 2020
 | Host             : DESKTOP-OJFSORI running 64-bit major release  (build 9200)
 | Command          : report_power -file rtsh_rs422_test_top_power_routed.rpt -pb rtsh_rs422_test_top_power_summary_routed.pb -rpx rtsh_rs422_test_top_power_routed.rpx
 | Design           : rtsh_rs422_test_top
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      101 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       40 |     20800 |            0.19 |
+| Slice Logic    |    <0.001 |      118 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       51 |     20800 |            0.25 |
 |   CARRY4       |    <0.001 |        8 |      8150 |            0.10 |
 |   Register     |    <0.001 |       42 |     41600 |            0.10 |
 |   Others       |     0.000 |        5 |       --- |             --- |
-| Signals        |    <0.001 |       97 |       --- |             --- |
+| Signals        |    <0.001 |      114 |       --- |             --- |
 | I/O            |     0.001 |       17 |       210 |            8.10 |
 | Static Power   |     0.062 |          |           |                 |
 | Total          |     0.064 |          |           |                 |
